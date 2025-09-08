@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { FaCaretDown, FaCopyright } from 'react-icons/fa';
-import { IoCartOutline, IoLocationSharp } from 'react-icons/io5'
+import { FaCopyright } from 'react-icons/fa';
+import { IoCartOutline } from 'react-icons/io5'
 import { Link } from 'react-router-dom'
 import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react';
 
@@ -26,11 +26,13 @@ const NavBar = () => {
     <>
 
       <nav
-        className={`w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50 transition-all duration-300 ${isScroll
-          ? "bg-[#714329]/80 backdrop-blur-lg shadow-md"
-          : "bg-transparent"
+        className={`w-full fixed top-0 left-0 px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50 transition-all duration-500 
+    ${isScroll
+            ? "bg-gradient-to-r from-[#D0B9A7]/70 via-[#C89B83]/80 to-[#D0B9A7]/30 shadow-lg backdrop-blur-md text-white"
+            : "bg-transparent backdrop-blur-sm text-[#714329]"
           }`}
       >
+
         <div className="flex items-center space-x-3">
 
           <div className="w-12 h-12 bg-[#714329] rounded-full flex items-center justify-center shadow-md">
@@ -90,7 +92,7 @@ const NavBar = () => {
           </Link>
           <div>
             <SignedOut>
-              <SignInButton className="hidden lg:flex items-center gap-2 px-8 py-2.5 border border-gray-400 rounded-full text-sm font-medium hover:bg-[#D0B9A7]/30 hover:text-[#F9FAFB] transition" />
+              <SignInButton className="hidden lg:flex items-center gap-2 px-8 py-2.5  bg-[#714329] text-white rounded-full text-sm md:text-base font-semibold border border-[#714329] shadow-md hover:bg-white hover:text-[#714329] hover:border-[#D0B9A7]/50 transition-all transform" />
             </SignedOut>
             <SignedIn>
               <UserButton />

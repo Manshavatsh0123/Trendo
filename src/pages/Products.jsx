@@ -2,7 +2,7 @@ import React from 'react'
 
 const Products = () => {
   return (
-    <div className='text-green-600 text-3xl'>Products</div>
+    <div className='mt-24 mb-10 px-5'>Products</div>
   )
 }
 
