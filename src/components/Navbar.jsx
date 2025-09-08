@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { FaCopyright } from 'react-icons/fa';
-import { IoCartOutline } from 'react-icons/io5'
+import { IoArrowBack, IoArrowForward, IoCartOutline, IoHandRight } from 'react-icons/io5'
 import { Link } from 'react-router-dom'
 import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react';
 
@@ -59,17 +59,17 @@ const NavBar = () => {
           <li>
             <a
               className="text-gray-800 hover:text-black Ovo transition-colors"
-              href="/products"
+              href="/about"
             >
-              Products
+              About
             </a>
           </li>
           <li>
             <a
               className="text-gray-800 hover:text-black Ovo transition-colors"
-              href="/about"
+              href="/products"
             >
-              About
+              Products
             </a>
           </li>
           <li>
@@ -99,7 +99,7 @@ const NavBar = () => {
             </SignedIn>
           </div>
           <button onClick={openSideMenu} className="block md:hidden">
-            <FaCopyright className="text-2xl text-gray-600 hover:text-black" />
+            <IoArrowBack className="text-2xl text-gray-600 hover:text-black" />
           </button>
         </div>
 

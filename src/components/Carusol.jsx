@@ -57,16 +57,25 @@ const Carusol = () => {
     };
 
     var settings = {
-        dots: false,
-        autoplay: true,
-        autoplaySpeed: 3000,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        nextArrow: <SampleNextArrow />,
-        prevArrow: <SamplePrevArrow />,
-    };
+  dots: false,
+  autoplay: true,
+  autoplaySpeed: 3000,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  nextArrow: <SampleNextArrow />,
+  prevArrow: <SamplePrevArrow />,
+  responsive: [
+    {
+      breakpoint: 768, 
+      settings: {
+        arrows: false, 
+      },
+    },
+  ],
+};
+
 
     return (
         <div className="px-4 md:px-8 lg:px-[8%] py-6">
