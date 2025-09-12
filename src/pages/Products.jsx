@@ -4,17 +4,20 @@ import FilterSection from "../components/FilterSection";
 import ProductCard from "../components/ProductCard";
 
 import { SignedIn, SignedOut, RedirectToSignIn } from "@clerk/clerk-react";
+import Pagination from "../components/Pagination";
 
 const Products = () => {
   const { data, fetchAllProducts } = getData();
 
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("");
-  const [price, setPrice] = useState([0, 100]);
+  const [price, setPrice] = useState(100);
   const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     fetchAllProducts().finally(() => setLoading(false));
+    window.scrollTo(0,0)
   }, []);
 
   const handleCategorychange = (e) => {
@@ -22,6 +25,10 @@ const Products = () => {
     setCategory(value);
     console.log(value);
   };
+
+  const pageHandler = (selectedPage) => {
+    setPage(selectedPage)
+  }
 
   const filteredData = data?.filter((item) => {
     const itemCategory =
@@ -37,11 +44,13 @@ const Products = () => {
       ? itemCategory.toLowerCase() === category.toLowerCase()
       : true;
 
-    const matchPrice =
-      item.price >= price[0] && item.price <= price[1];
+    const matchPrice = item.price <= price;
 
     return matchSearch && matchCategory && matchPrice;
   });
+
+  const dynamicPage = Math.ceil(filteredData?.length / 12);
+
 
   return (
     <>
@@ -64,12 +73,19 @@ const Products = () => {
               {loading ? (
                 <div className="col-span-full text-center">Loading...</div>
               ) : filteredData?.length > 0 ? (
-                filteredData.map((product) => (
-                  <ProductCard
-                    key={product._id || product.id}
-                    product={product}
-                  />
-                ))
+                <>
+                  {filteredData
+                    .slice(page * 12 - 12, page * 12)
+                    .map((product) => (
+                      <ProductCard
+                        key={product._id || product.id}
+                        product={product}
+                      />
+                    ))}
+                  <div className="col-span-full flex justify-center mt-4">
+                    <Pagination pageHandler={pageHandler} page={page} dynamicPage={dynamicPage}/>
+                  </div>
+                </>
               ) : (
                 <div className="text-center col-span-full text-[#714329] font-medium">
                   No products found
@@ -84,6 +100,7 @@ const Products = () => {
         <RedirectToSignIn />
       </SignedOut>
     </>
+
   );
 };
 

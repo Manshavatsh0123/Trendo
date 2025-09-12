@@ -11,7 +11,7 @@ export const DataProvider = ({ children }) => {
     const fetchAllProducts = async () => {
         try {
             const res = await axios.get('https://api.escuelajs.co/api/v1/products');
-            console.log(res.data);
+            //console.log(res.data);
             const productsData = res.data;
             setData(productsData);
         } catch (error) {

@@ -57,24 +57,24 @@ const Carusol = () => {
     };
 
     var settings = {
-  dots: false,
-  autoplay: true,
-  autoplaySpeed: 3000,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  nextArrow: <SampleNextArrow />,
-  prevArrow: <SamplePrevArrow />,
-  responsive: [
-    {
-      breakpoint: 768, 
-      settings: {
-        arrows: false, 
-      },
-    },
-  ],
-};
+        dots: false,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        nextArrow: <SampleNextArrow />,
+        prevArrow: <SamplePrevArrow />,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    arrows: false,
+                },
+            },
+        ],
+    };
 
 
     return (

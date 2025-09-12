@@ -1,7 +1,7 @@
 import React from 'react'
 import { getData } from '../Context/DataContext';
 
-const FilterSection = ({ search, setSearch, category, setCategory, price, setPrice ,handleCategorychange}) => {
+const FilterSection = ({ search, setSearch, category, price, setPrice ,handleCategorychange}) => {
   const { categories } = getData();
 
   return (
