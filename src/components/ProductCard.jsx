@@ -6,7 +6,7 @@ import { usecart } from "../context/CardContext";
 const ProductCard = ({ product }) => {
   const navigate = useNavigate()
   const {addtoCart , cartItem} = usecart()
-  //console.log(cartItem)
+  
   return (
     <div
       key={product._id || product.id}

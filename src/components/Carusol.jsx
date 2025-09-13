@@ -5,10 +5,14 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Category from './Category';
+import { useNavigate } from 'react-router-dom';
+import { usecart } from '../context/CardContext';
 
 const Carusol = () => {
 
     const { data, fetchAllProducts } = getData();
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetchAllProducts();
@@ -118,15 +122,17 @@ const Carusol = () => {
                                     </p>
                                 )}
 
-                                <div className="flex flex-wrap md:flex-nowrap items-center gap-4">
-                                    <button className="px-6 py-3 md:px-8 md:py-4 bg-[#714329] text-white rounded-full text-sm md:text-base font-semibold border border-[#714329] shadow-md hover:bg-white hover:text-[#714329] hover:border-[#D0B9A7]/50 transition-all transform">
-                                        Add to Cart
-                                    </button>
-
-                                    <button className="px-6 py-3 md:px-8 md:py-4 border text-[#714329] bg-white  border-[#D0B9A7]/50 rounded-full text-sm md:text-base font-semibold hover:bg-[#714329] hover:text-white transition">
+                                <div className="flex items-center gap-4">
+                                    <button
+                                        className="px-6 py-3 md:px-8 md:py-4 bg-[#714329] text-white rounded-full text-sm md:text-base font-semibold border border-[#714329] shadow-md hover:bg-white hover:text-[#714329] hover:border-[#D0B9A7]/50 transition-all transform"
+                                        onClick={() => {
+                                            navigate('/products');
+                                        }}
+                                    >
                                         Shop Now
                                     </button>
                                 </div>
+
                             </div>
 
                         </div>

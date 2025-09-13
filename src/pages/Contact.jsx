@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Contact = () => {
   const [result, setResult] = useState("");
@@ -26,19 +26,23 @@ const Contact = () => {
       setResult("Something went wrong. Try again.");
     }
   };
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, []);
+
 
   return (
     <div
       id="contact"
       className="w-full px-6 sm:px-[12%] py-20 scroll-mt-20 bg-gradient-to-b from-[#F8F3EF] to-[#EFE6E1]"
     >
-      {/* Heading */}
+      
       <div className="text-center mb-12">
         <h1 className="text-4xl font-extrabold text-[#714329] mb-4">
           Let’s Connect!
         </h1>
         <p className="text-gray-700 text-lg max-w-2xl mx-auto mb-3">
-          Have a question, project idea, or just want to say hello?  
+          Have a question, project idea, or just want to say hello?
           We’d love to hear from you!
         </p>
         <p className="text-gray-500 text-sm max-w-2xl mx-auto leading-relaxed">
@@ -48,7 +52,7 @@ const Contact = () => {
         </p>
       </div>
 
-      {/* Form */}
+      
       <form
         onSubmit={onSubmit}
         className="max-w-2xl mx-auto mt-10 space-y-6 bg-white p-8 rounded-2xl shadow-xl border border-[#E5D7CF]"
