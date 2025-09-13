@@ -1,9 +1,12 @@
 import React from "react";
 import { IoCartOutline } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
+import { usecart } from "../context/CardContext";
 
 const ProductCard = ({ product }) => {
   const navigate = useNavigate()
+  const {addtoCart , cartItem} = usecart()
+  //console.log(cartItem)
   return (
     <div
       key={product._id || product.id}
@@ -37,7 +40,7 @@ const ProductCard = ({ product }) => {
           <p className="text-base font-bold text-[#714329]">₹{product.price}</p>
         )}
         <button className="p-2 bg-[#714329] text-white rounded-full shadow hover:bg-[#B08463] transition">
-          <IoCartOutline className="text-lg" />
+          <IoCartOutline className="text-lg" onClick={()=>addtoCart(product)}/>
         </button>
       </div>
     </div>

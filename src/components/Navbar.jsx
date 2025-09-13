@@ -3,8 +3,10 @@ import { FaCopyright } from 'react-icons/fa';
 import { IoArrowBack, IoArrowForward, IoCartOutline, IoHandRight } from 'react-icons/io5'
 import { Link } from 'react-router-dom'
 import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react';
+import { usecart } from '../context/CardContext';
 
 const NavBar = () => {
+  const {cartItem} = usecart()
   const [isScroll, setIsScroll] = useState(false);
   const sideMenuRef = useRef();
   const openSideMenu = () => {
@@ -87,7 +89,7 @@ const NavBar = () => {
           <Link to="/cart" className="relative">
             <IoCartOutline className="text-3xl text-[#714329]/80 hover:text-[#714329]" />
             <span className="absolute -top-2 -right-2 px-1.5 rounded-full bg-[#E07A5F] text-white text-xs w-5 h-5 flex items-center justify-center">
-              0
+              {cartItem.length}
             </span>
           </Link>
           <div>

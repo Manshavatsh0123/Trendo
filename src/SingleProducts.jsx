@@ -33,7 +33,8 @@ const SingleProduct = () => {
         <p className="text-red-500 font-semibold text-center">{error}</p>
       ) : singleProduct ? (
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 bg-white rounded-xl shadow-lg p-8">
-          
+
+         
           <div className="flex justify-center items-center">
             <img
               src={singleProduct.images?.[0]}
@@ -50,9 +51,20 @@ const SingleProduct = () => {
             <p className="text-gray-600 leading-relaxed">
               {singleProduct.description}
             </p>
-            <p className="text-3xl font-semibold text-[#714329]">
-              ${singleProduct.price}
-            </p>
+
+            
+            <div className="flex items-center gap-3">
+              <p className="text-3xl font-semibold text-[#714329]">
+                ${(singleProduct.price * 0.9).toFixed(2)} 
+              </p>
+              <p className="text-lg text-gray-400 line-through">
+                ${singleProduct.price}
+              </p>
+              <span className="text-sm font-medium text-green-600">
+                10% OFF
+              </span>
+            </div>
+
             <p className="text-sm text-gray-500">
               Category:{" "}
               <span className="font-medium text-gray-700">
@@ -60,7 +72,18 @@ const SingleProduct = () => {
               </span>
             </p>
 
-          
+            
+            <div className="flex items-center gap-4 mt-4">
+              <button className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300">
+                -
+              </button>
+              <span className="text-lg font-medium">1</span> 
+              <button className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300">
+                +
+              </button>
+            </div>
+
+            
             <div className="flex gap-4 mt-6">
               <button className="bg-[#714329] text-white px-6 py-2 rounded-lg shadow hover:bg-[#5a3423] transition">
                 Add to Cart
@@ -75,6 +98,7 @@ const SingleProduct = () => {
         <p className="text-center">Loading...</p>
       )}
     </div>
+
 
   );
 };
