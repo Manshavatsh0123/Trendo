@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { usecart } from "../context/CardContext"
+import { usecart } from "../Context/CardContext"
 
 const DeliveryPage = () => {
 const { cartItem } = usecart()

@@ -3,7 +3,7 @@ import { FaCopyright } from 'react-icons/fa';
 import { IoArrowBack, IoArrowForward, IoCartOutline, IoHandRight } from 'react-icons/io5'
 import { Link } from 'react-router-dom'
 import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react';
-import { usecart } from '../context/CardContext';
+import { usecart } from '../Context/CardContext';
 
 const NavBar = () => {
   const {cartItem} = usecart()

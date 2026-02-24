@@ -1,5 +1,5 @@
 import React from 'react'
-import { usecart } from '../context/CardContext'
+import { usecart } from '../Context/CardContext'
 import { useNavigate } from 'react-router-dom'
 
 const Card = () => {
